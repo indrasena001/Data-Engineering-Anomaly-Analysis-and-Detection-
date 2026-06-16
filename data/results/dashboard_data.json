@@ -3,7 +3,7 @@
     "total_events": 499997,
     "total_anomalies": 84443,
     "blocked_ips": 80,
-    "bandwidth": 272.9,
+    "bandwidth": 236.2,
     "uptime": "99.97%",
     "top_attack_type": "DoS",
     "attack_ratio": 16.89
@@ -57,404 +57,404 @@
   },
   "top_threats": [
     {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "159.34.185.34",
-      "target": "api-gateway",
-      "protocol": "UDP",
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "211.156.222.37",
+      "target": "cdn-edge-03",
+      "protocol": "DNS",
       "status": "mitigated"
     },
     {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "159.237.56.105",
-      "target": "db-master",
-      "protocol": "SSH",
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "28.2.93.67",
+      "target": "load-balancer",
+      "protocol": "DNS",
+      "status": "monitoring"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "34.60.19.187",
+      "target": "api-gateway",
+      "protocol": "TCP",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "172.86.54.173",
+      "target": "api-gateway",
+      "protocol": "TCP",
       "status": "blocked"
     },
     {
       "severity": "critical",
       "type": "DDoS",
-      "source_ip": "47.7.185.53",
+      "source_ip": "11.56.35.81",
+      "target": "db-master",
+      "protocol": "HTTP",
+      "status": "blocked"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "19.48.86.212",
+      "target": "auth-service",
+      "protocol": "DNS",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "39.27.190.134",
+      "target": "load-balancer",
+      "protocol": "DNS",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "162.147.197.183",
+      "target": "web-server-01",
+      "protocol": "TCP",
+      "status": "monitoring"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "203.219.38.15",
+      "target": "load-balancer",
+      "protocol": "HTTP",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "167.241.181.97",
+      "target": "auth-service",
+      "protocol": "SSH",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "187.125.163.161",
       "target": "dns-primary",
+      "protocol": "SSH",
+      "status": "blocked"
+    },
+    {
+      "severity": "medium",
+      "type": "Brute Force",
+      "source_ip": "89.156.98.212",
+      "target": "api-gateway",
+      "protocol": "UDP",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "41.146.62.182",
+      "target": "cdn-edge-03",
+      "protocol": "HTTPS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "31.211.242.40",
+      "target": "web-server-01",
+      "protocol": "SSH",
+      "status": "blocked"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "157.195.56.252",
+      "target": "web-server-01",
       "protocol": "DNS",
       "status": "blocked"
     },
     {
       "severity": "high",
       "type": "DoS",
-      "source_ip": "48.192.136.36",
-      "target": "dns-primary",
-      "protocol": "UDP",
+      "source_ip": "2.104.114.34",
+      "target": "vpn-gateway",
+      "protocol": "HTTP",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "94.171.190.111",
+      "target": "api-gateway",
+      "protocol": "HTTP",
       "status": "mitigated"
     },
     {
       "severity": "critical",
       "type": "DDoS",
-      "source_ip": "48.178.3.100",
+      "source_ip": "97.167.165.126",
       "target": "db-master",
+      "protocol": "HTTPS",
+      "status": "blocked"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "2.9.196.192",
+      "target": "web-server-01",
+      "protocol": "HTTP",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "68.90.144.162",
+      "target": "load-balancer",
+      "protocol": "DNS",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "174.241.124.5",
+      "target": "dns-primary",
+      "protocol": "TCP",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "95.151.96.50",
+      "target": "auth-service",
+      "protocol": "HTTPS",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "67.252.200.106",
+      "target": "vpn-gateway",
+      "protocol": "HTTPS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "213.58.22.127",
+      "target": "cdn-edge-03",
+      "protocol": "TCP",
+      "status": "monitoring"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "91.213.231.76",
+      "target": "web-server-01",
+      "protocol": "UDP",
+      "status": "blocked"
+    },
+    {
+      "severity": "medium",
+      "type": "Brute Force",
+      "source_ip": "9.177.229.109",
+      "target": "dns-primary",
+      "protocol": "DNS",
+      "status": "monitoring"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "114.242.79.228",
+      "target": "cdn-edge-03",
+      "protocol": "HTTPS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "81.109.222.155",
+      "target": "web-server-01",
+      "protocol": "DNS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "139.57.194.93",
+      "target": "web-server-01",
+      "protocol": "HTTPS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "195.90.241.217",
+      "target": "web-server-01",
+      "protocol": "SSH",
+      "status": "monitoring"
+    },
+    {
+      "severity": "medium",
+      "type": "Unknown",
+      "source_ip": "41.137.77.154",
+      "target": "vpn-gateway",
+      "protocol": "HTTPS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "135.170.229.247",
+      "target": "auth-service",
+      "protocol": "TCP",
+      "status": "blocked"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "65.86.106.105",
+      "target": "cdn-edge-03",
+      "protocol": "TCP",
+      "status": "mitigated"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "55.112.58.32",
+      "target": "load-balancer",
+      "protocol": "TCP",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "29.211.62.93",
+      "target": "load-balancer",
+      "protocol": "DNS",
+      "status": "mitigated"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "78.186.109.230",
+      "target": "vpn-gateway",
+      "protocol": "SSH",
+      "status": "monitoring"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "155.116.74.13",
+      "target": "vpn-gateway",
+      "protocol": "TCP",
+      "status": "mitigated"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "59.1.186.145",
+      "target": "dns-primary",
+      "protocol": "DNS",
+      "status": "blocked"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "208.87.40.13",
+      "target": "auth-service",
       "protocol": "UDP",
       "status": "blocked"
     },
     {
       "severity": "high",
       "type": "DoS",
-      "source_ip": "145.133.176.152",
-      "target": "db-master",
+      "source_ip": "86.46.132.105",
+      "target": "load-balancer",
       "protocol": "UDP",
+      "status": "blocked"
+    },
+    {
+      "severity": "low",
+      "type": "PortScan",
+      "source_ip": "18.60.238.190",
+      "target": "cdn-edge-03",
+      "protocol": "TCP",
       "status": "monitoring"
     },
     {
       "severity": "low",
       "type": "PortScan",
-      "source_ip": "136.79.95.142",
-      "target": "auth-service",
+      "source_ip": "88.213.54.18",
+      "target": "dns-primary",
+      "protocol": "HTTP",
+      "status": "blocked"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "21.68.169.199",
+      "target": "db-master",
+      "protocol": "TCP",
+      "status": "mitigated"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "110.137.9.17",
+      "target": "load-balancer",
       "protocol": "HTTP",
       "status": "monitoring"
     },
     {
       "severity": "high",
       "type": "DoS",
-      "source_ip": "129.160.23.144",
-      "target": "web-server-01",
-      "protocol": "TCP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "medium",
-      "type": "Brute Force",
-      "source_ip": "177.118.23.154",
-      "target": "db-master",
-      "protocol": "DNS",
+      "source_ip": "68.34.157.124",
+      "target": "vpn-gateway",
+      "protocol": "HTTP",
       "status": "blocked"
     },
     {
       "severity": "high",
       "type": "DoS",
-      "source_ip": "175.170.98.205",
+      "source_ip": "31.198.53.75",
+      "target": "cdn-edge-03",
+      "protocol": "HTTP",
+      "status": "blocked"
+    },
+    {
+      "severity": "critical",
+      "type": "DDoS",
+      "source_ip": "188.151.236.253",
       "target": "vpn-gateway",
+      "protocol": "UDP",
+      "status": "monitoring"
+    },
+    {
+      "severity": "high",
+      "type": "DoS",
+      "source_ip": "90.60.115.235",
+      "target": "auth-service",
       "protocol": "HTTPS",
       "status": "monitoring"
     },
     {
       "severity": "low",
       "type": "PortScan",
-      "source_ip": "107.236.143.90",
-      "target": "cdn-edge-03",
-      "protocol": "TCP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "169.106.154.19",
-      "target": "api-gateway",
-      "protocol": "TCP",
-      "status": "blocked"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "175.127.251.25",
-      "target": "db-master",
-      "protocol": "DNS",
-      "status": "mitigated"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "9.234.92.149",
-      "target": "cdn-edge-03",
-      "protocol": "HTTP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "42.168.171.195",
-      "target": "dns-primary",
-      "protocol": "SSH",
-      "status": "monitoring"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "94.247.56.177",
-      "target": "web-server-01",
-      "protocol": "DNS",
-      "status": "blocked"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "186.36.171.75",
-      "target": "web-server-01",
-      "protocol": "TCP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "117.229.169.125",
-      "target": "auth-service",
-      "protocol": "DNS",
-      "status": "monitoring"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "61.92.234.68",
-      "target": "web-server-01",
-      "protocol": "TCP",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "183.18.135.252",
-      "target": "auth-service",
-      "protocol": "SSH",
-      "status": "monitoring"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "5.222.231.32",
-      "target": "vpn-gateway",
-      "protocol": "UDP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "36.242.83.68",
-      "target": "dns-primary",
-      "protocol": "HTTP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "80.79.62.4",
-      "target": "vpn-gateway",
-      "protocol": "UDP",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "52.198.243.72",
-      "target": "vpn-gateway",
-      "protocol": "DNS",
-      "status": "mitigated"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "20.50.31.111",
-      "target": "cdn-edge-03",
-      "protocol": "SSH",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "108.33.32.216",
-      "target": "cdn-edge-03",
-      "protocol": "TCP",
-      "status": "blocked"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "182.118.242.109",
-      "target": "cdn-edge-03",
-      "protocol": "SSH",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "108.205.185.161",
-      "target": "auth-service",
-      "protocol": "DNS",
-      "status": "blocked"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "167.237.233.156",
-      "target": "vpn-gateway",
-      "protocol": "TCP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "68.145.61.11",
-      "target": "web-server-01",
-      "protocol": "HTTP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "85.182.4.161",
-      "target": "dns-primary",
-      "protocol": "UDP",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "137.75.170.138",
-      "target": "vpn-gateway",
-      "protocol": "HTTP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "1.114.16.185",
-      "target": "api-gateway",
-      "protocol": "DNS",
-      "status": "monitoring"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "8.88.135.223",
-      "target": "auth-service",
-      "protocol": "TCP",
-      "status": "blocked"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "38.74.248.151",
-      "target": "web-server-01",
-      "protocol": "DNS",
-      "status": "mitigated"
-    },
-    {
-      "severity": "medium",
-      "type": "Brute Force",
-      "source_ip": "103.224.21.9",
-      "target": "vpn-gateway",
-      "protocol": "HTTPS",
-      "status": "monitoring"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "66.150.41.126",
-      "target": "api-gateway",
-      "protocol": "HTTP",
-      "status": "blocked"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "55.99.43.130",
-      "target": "cdn-edge-03",
-      "protocol": "UDP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "163.29.193.141",
-      "target": "web-server-01",
-      "protocol": "TCP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "182.3.28.144",
-      "target": "db-master",
-      "protocol": "HTTP",
-      "status": "blocked"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "66.201.147.220",
-      "target": "dns-primary",
-      "protocol": "HTTP",
-      "status": "blocked"
-    },
-    {
-      "severity": "medium",
-      "type": "Brute Force",
-      "source_ip": "202.96.19.3",
-      "target": "dns-primary",
-      "protocol": "UDP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "162.255.104.148",
-      "target": "vpn-gateway",
-      "protocol": "DNS",
-      "status": "blocked"
-    },
-    {
-      "severity": "low",
-      "type": "PortScan",
-      "source_ip": "186.38.9.17",
-      "target": "dns-primary",
-      "protocol": "DNS",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "124.104.253.207",
-      "target": "auth-service",
-      "protocol": "HTTP",
-      "status": "blocked"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "146.92.97.96",
-      "target": "cdn-edge-03",
-      "protocol": "HTTP",
-      "status": "monitoring"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "121.160.255.11",
-      "target": "vpn-gateway",
+      "source_ip": "116.229.178.141",
+      "target": "load-balancer",
       "protocol": "SSH",
       "status": "blocked"
     },
     {
       "severity": "high",
       "type": "DoS",
-      "source_ip": "91.94.54.220",
-      "target": "auth-service",
-      "protocol": "HTTP",
-      "status": "blocked"
-    },
-    {
-      "severity": "high",
-      "type": "DoS",
-      "source_ip": "179.203.202.81",
-      "target": "vpn-gateway",
-      "protocol": "TCP",
-      "status": "mitigated"
-    },
-    {
-      "severity": "critical",
-      "type": "DDoS",
-      "source_ip": "55.204.192.209",
-      "target": "api-gateway",
-      "protocol": "HTTP",
-      "status": "blocked"
+      "source_ip": "192.129.10.216",
+      "target": "dns-primary",
+      "protocol": "SSH",
+      "status": "monitoring"
     }
   ],
   "model_metrics": {
@@ -464,14 +464,14 @@
       "recall": 0.5669,
       "f1_score": 0.5186,
       "anomalies_detected": 20030,
-      "training_time_seconds": 10.24
+      "training_time_seconds": 3.14
     },
     "random_forest": {
       "accuracy": 0.994,
       "f1_weighted": 0.9955,
       "f1_macro": 0.8198,
       "roc_auc": null,
-      "training_time_seconds": 62.04,
+      "training_time_seconds": 34.26,
       "per_class": {
         "BENIGN": {
           "precision": 0.9994,
@@ -614,52 +614,52 @@
   ],
   "port_attacks": [
     {
+      "port": 80,
+      "name": "HTTP",
+      "color": "#10b981",
+      "count": 15772
+    },
+    {
       "port": 21,
       "name": "FTP",
       "color": "#f97316",
-      "count": 20869
-    },
-    {
-      "port": 22,
-      "name": "SSH",
-      "color": "#3b82f6",
-      "count": 18247
+      "count": 15659
     },
     {
       "port": 25,
       "name": "SMTP",
       "color": "#ec4899",
-      "count": 15178
-    },
-    {
-      "port": 80,
-      "name": "HTTP",
-      "color": "#10b981",
-      "count": 14644
+      "count": 15321
     },
     {
       "port": 3306,
       "name": "MySQL",
       "color": "#f59e0b",
-      "count": 14039
-    },
-    {
-      "port": 8080,
-      "name": "Proxy",
-      "color": "#00f0ff",
-      "count": 11043
-    },
-    {
-      "port": 443,
-      "name": "HTTPS",
-      "color": "#7c3aed",
-      "count": 9935
+      "count": 13976
     },
     {
       "port": 53,
       "name": "DNS",
       "color": "#6366f1",
-      "count": 4902
+      "count": 11486
+    },
+    {
+      "port": 22,
+      "name": "SSH",
+      "color": "#3b82f6",
+      "count": 10839
+    },
+    {
+      "port": 443,
+      "name": "HTTPS",
+      "color": "#7c3aed",
+      "count": 8653
+    },
+    {
+      "port": 8080,
+      "name": "Proxy",
+      "color": "#00f0ff",
+      "count": 6815
     }
   ]
 }
