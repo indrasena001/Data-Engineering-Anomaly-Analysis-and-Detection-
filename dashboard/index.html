@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Real-time Network Intrusion Detection and System Log Anomaly Detection Dashboard with threat visualization and live monitoring.">
+    <title>NetSentinel — Network Intrusion & Log Anomaly Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated background particles -->
+    <canvas id="bg-particles"></canvas>
+
+    <!-- Top Navigation -->
+    <header id="main-header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <path d="M14 2L2 8v12l12 6 12-6V8L14 2z" stroke="url(#logoGrad)" stroke-width="1.5"
+                            fill="none" />
+                        <path d="M14 8L8 11v6l6 3 6-3v-6l-6-3z" fill="url(#logoGrad)" opacity="0.3" />
+                        <circle cx="14" cy="14" r="3" fill="url(#logoGrad)" />
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="26" y2="26">
+                                <stop offset="0%" stop-color="#00f0ff" />
+                                <stop offset="100%" stop-color="#7c3aed" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div>
+                    <h1>NetSentinel</h1>
+                    <span class="subtitle">Intrusion & Anomaly Detector</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="threat-level-container" id="threat-level-widget">
+                <span class="threat-label">THREAT LEVEL</span>
+                <div class="threat-bar">
+                    <div class="threat-fill" id="threat-fill"></div>
+                </div>
+                <span class="threat-value" id="threat-value">MODERATE</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-stat">
+                <span class="stat-dot online"></span>
+                <span id="system-status">System Online</span>
+            </div>
+            <div class="header-stat">
+                <span class="header-clock" id="header-clock">--:--:--</span>
+            </div>
+            <button class="btn-icon" id="btn-alerts" title="Alerts">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                </svg>
+                <span class="badge" id="alert-badge">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main id="dashboard">
+        <!-- Stats Row -->
+        <section class="stats-row" id="stats-row">
+            <div class="stat-card" id="stat-events">
+                <div class="stat-icon blue">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="total-events">0</span>
+                    <span class="stat-label">Total Events</span>
+                </div>
+                <span class="stat-trend up" id="events-trend">+0%</span>
+            </div>
+            <div class="stat-card" id="stat-anomalies">
+                <div class="stat-icon red">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="total-anomalies">0</span>
+                    <span class="stat-label">Anomalies Detected</span>
+                </div>
+                <span class="stat-trend up danger" id="anomalies-trend">+0%</span>
+            </div>
+            <div class="stat-card" id="stat-blocked">
+                <div class="stat-icon amber">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="blocked-ips">0</span>
+                    <span class="stat-label">Blocked IPs</span>
+                </div>
+                <span class="stat-trend up" id="blocked-trend">+0</span>
+            </div>
+            <div class="stat-card" id="stat-bandwidth">
+                <div class="stat-icon green">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="bandwidth">0</span>
+                    <span class="stat-label">MB/s Throughput</span>
+                </div>
+                <span class="stat-trend neutral" id="bandwidth-trend">~0%</span>
+            </div>
+            <div class="stat-card" id="stat-uptime">
+                <div class="stat-icon purple">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="uptime">99.97%</span>
+                    <span class="stat-label">System Uptime</span>
+                </div>
+                <span class="stat-trend up">Healthy</span>
+            </div>
+        </section>
+
+        <!-- Main Grid -->
+        <section class="dashboard-grid">
+            <!-- Network Traffic Chart -->
+            <div class="card card-wide" id="card-traffic">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        Network Traffic
+                    </h2>
+                    <div class="card-actions">
+                        <button class="chip active" data-range="1m">1M</button>
+                        <button class="chip" data-range="5m">5M</button>
+                        <button class="chip" data-range="15m">15M</button>
+                        <button class="chip" data-range="1h">1H</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="traffic-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Protocol Distribution -->
+            <div class="card" id="card-protocols">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        Protocol Distribution
+                    </h2>
+                </div>
+                <div class="chart-container doughnut-container">
+                    <canvas id="protocol-chart"></canvas>
+                </div>
+                <div class="protocol-legend" id="protocol-legend"></div>
+            </div>
+
+            <!-- Threat Map -->
+            <div class="card card-wide" id="card-map">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        Global Threat Map
+                    </h2>
+                    <div class="live-indicator">
+                        <span class="pulse-dot"></span> LIVE
+                    </div>
+                </div>
+                <div class="map-container">
+                    <canvas id="threat-map"></canvas>
+                </div>
+            </div>
+
+            <!-- Anomaly Severity -->
+            <div class="card" id="card-severity">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        </svg>
+                        Anomaly Severity
+                    </h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="severity-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Live Log Feed -->
+            <div class="card card-tall" id="card-logs">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                        </svg>
+                        Live System Logs
+                    </h2>
+                    <div class="card-actions">
+                        <button class="chip active" data-filter="all">All</button>
+                        <button class="chip" data-filter="critical">Critical</button>
+                        <button class="chip" data-filter="warning">Warning</button>
+                        <button class="chip" data-filter="info">Info</button>
+                    </div>
+                </div>
+                <div class="log-feed" id="log-feed">
+                    <!-- Logs injected by JS -->
+                </div>
+            </div>
+
+            <!-- Active Threats Table -->
+            <div class="card card-wide" id="card-threats">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Active Threats
+                    </h2>
+                    <span class="active-count" id="active-threat-count">0 active</span>
+                </div>
+                <div class="table-wrapper">
+                    <table id="threats-table">
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Type</th>
+                                <th>Source IP</th>
+                                <th>Target</th>
+                                <th>Protocol</th>
+                                <th>Timestamp</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="threats-tbody">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top Attacked Ports -->
+            <div class="card" id="card-ports">
+                <div class="card-header">
+                    <h2>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                            <line x1="6" y1="6" x2="6.01" y2="6" />
+                            <line x1="6" y1="18" x2="6.01" y2="18" />
+                        </svg>
+                        Top Attacked Ports
+                    </h2>
+                </div>
+                <div class="ports-list" id="ports-list">
+                    <!-- Injected by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Alert Drawer -->
+    <div class="alert-drawer" id="alert-drawer">
+        <div class="drawer-header">
+            <h3>Recent Alerts</h3>
+            <button class="btn-close" id="btn-close-drawer">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawer-alerts">
+            <!-- Injected by JS -->
+        </div>
+    </div>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

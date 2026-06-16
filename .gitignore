@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-specific ignores for large files
+data/raw/
+data/processed/
+data/results/anomaly_results.csv
+data/results/*.pkl
+
