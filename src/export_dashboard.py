@@ -9,7 +9,7 @@ import os
 import json
 import numpy as np
 import pandas as pd
-from src.config import DASHBOARD_DATA_FILE, RESULTS_DIR, SEVERITY_MAP
+from src.config import DASHBOARD_DATA_FILE, RESULTS_DIR, SEVERITY_MAP, DASHBOARD_DIR
 
 
 def _make_serializable(obj):
@@ -231,9 +231,20 @@ def export_dashboard_data(
     with open(DASHBOARD_DATA_FILE, "w") as f:
         json.dump(dashboard_data, f, indent=2, default=_make_serializable)
 
+    # Save copy to dashboard directory for self-contained hosting/preview
+    dashboard_copy_path = os.path.join(DASHBOARD_DIR, "dashboard_data.json")
+    try:
+        os.makedirs(DASHBOARD_DIR, exist_ok=True)
+        with open(dashboard_copy_path, "w") as f:
+            json.dump(dashboard_data, f, indent=2, default=_make_serializable)
+    except Exception as e:
+        print(f"Warning: Could not save copy to dashboard directory: {e}")
+
     file_size = os.path.getsize(DASHBOARD_DATA_FILE) / 1024
     print(f"\n{'─' * 60}")
     print(f"Dashboard data saved to: {DASHBOARD_DATA_FILE}")
+    if os.path.exists(dashboard_copy_path):
+        print(f"Dashboard data copy saved to: {dashboard_copy_path}")
     print(f"File size: {file_size:.1f} KB")
     print(f"{'─' * 60}\n")
 
